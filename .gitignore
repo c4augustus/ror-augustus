@@ -17,3 +17,6 @@
 
 ## for OS X [cathames]
 .DS_Store
+
+## for ViM [cathames]
+*.swp

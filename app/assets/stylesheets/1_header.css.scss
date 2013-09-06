@@ -1,0 +1,60 @@
+@mixin background-color_header {
+  background-color: #777777;
+}
+@mixin background-color_section {
+  background-color: #FFFFFF;
+}
+@mixin box_static {
+  max-height: 1em;
+  overflow: hidden;
+  text-overflow: clip;
+}
+header {
+  @include background-color_header;
+  border: 0;
+  color: #FFFFFF;
+  font-size: 12px;
+  height: 100%;
+  padding: 0;
+  hgroup {
+    padding: 12px;
+    h1 {
+      @include box_static;
+      color: #FFFFFF;
+      margin: 4px;
+    }
+    h2 {
+      @include box_static;
+      color: #FFFF7F;
+      margin: 4px;
+    }
+    h3 {
+      @include box_static;
+      color: #FFAF5F;
+      margin: 4px;
+    }
+  }
+  nav {
+    @include box_static;
+    background-color: #555555;
+    padding: 8px;
+    a {
+      color: #FF7F7F;
+      margin: 4px;
+      padding: 8px;
+      text-decoration: none;
+    }
+    a.selected {
+      @include background-color_section;
+      color: #FF0000;
+    }
+    a.link-disabled, a.link-disabled:hover {
+      color: #000000;
+      background-color: #555555;
+    }
+    a:hover {
+      @include background-color_header;
+      color: #FFFFFF;
+    }
+  }
+}
