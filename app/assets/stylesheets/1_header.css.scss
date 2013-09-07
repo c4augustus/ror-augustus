@@ -11,27 +11,24 @@
 }
 header {
   @include background-color_header;
-  border: 0;
-  color: #FFFFFF;
   font-size: 12px;
-  height: 100%;
-  padding: 0;
   hgroup {
     padding: 12px;
-    h1 {
+    h1, h2, h3 {
       @include box_static;
-      color: #FFFFFF;
       margin: 4px;
+    }
+    h1 {
+      color: #FFFFFF;
+      text-shadow: 3px 4px 3px rgba(0,0,0,0.7);
     }
     h2 {
-      @include box_static;
       color: #FFFF7F;
-      margin: 4px;
+      text-shadow: 2px 3px 2px rgba(0,0,0,0.7);
     }
     h3 {
-      @include box_static;
       color: #FFAF5F;
-      margin: 4px;
+      text-shadow: 1px 2px 1px rgba(0,0,0,0.7);
     }
   }
   nav {
@@ -49,8 +46,8 @@ header {
       color: #FF0000;
     }
     a.link-disabled, a.link-disabled:hover {
-      color: #000000;
       background-color: #555555;
+      color: #000000;
     }
     a:hover {
       @include background-color_header;
