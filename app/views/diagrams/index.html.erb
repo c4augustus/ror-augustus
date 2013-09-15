@@ -1,3 +1,4 @@
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
 <h1>Listing diagrams</h1>
 
 <table>
@@ -35,3 +36,4 @@
 <br>
 
 <%= link_to 'New Diagram', new_diagram_path %>
+<%= render partial: "shared/footer" %>

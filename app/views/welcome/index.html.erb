@@ -1,17 +1,4 @@
-<header>
-  <hgroup>
-    <h1>C.A.Thames</h1>
-    <h2>Software Architect and Programmer</h2>
-    <h3>relentless in pursuit of excellence in computing</h3>
-  </hgroup>
-  <nav>
-    <a href="/" class="selected">Home</a>
-    <a class="link-disabled">Code</a>
-    <a class="link-disabled">Diagrams</a>
-    <a class="link-disabled">Movies</a>
-    <a class="link-disabled">Writings</a>
-  </nav>
-</header>
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
 <section>
   <article id="news" class="alert">
     <h1>Rennovation Underway</h1>
@@ -27,8 +14,10 @@
   </article>
   <article id="movie">
     <video autoplay loop>
+<!--
       <source src="videos/coilcore_comp_vast_0001_640x352.mp4" type="video/mp4">
       <source src="videos/coilcore_comp_vast_0001_640x352.webm" type="video/webm">
+-->
       VIDEO NOT SUPPORTED
     </video>
   </article>
@@ -37,4 +26,4 @@
   <article id="movies"></article>
   <article id="writings"></article>
 </section>
-<footer></footer>
+<%= render partial: "shared/footer" %>
