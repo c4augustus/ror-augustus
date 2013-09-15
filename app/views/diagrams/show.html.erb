@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @diagram.filename %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @diagram.title %>
+</p>
+
+<p>
+  <strong>Revision:</strong>
+  <%= @diagram.revision %>
+</p>
+
+<p>
+  <strong>Revision date:</strong>
+  <%= @diagram.revision_date %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @diagram.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @diagram.height %>
+</p>
+
+<%= link_to 'Edit', edit_diagram_path(@diagram) %> |
+<%= link_to 'Back', diagrams_path %>

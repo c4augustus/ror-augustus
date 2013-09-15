@@ -1,0 +1,37 @@
+<h1>Listing diagrams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Title</th>
+      <th>Revision</th>
+      <th>Revision date</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diagrams.each do |diagram| %>
+      <tr>
+        <td><%= diagram.filename %></td>
+        <td><%= diagram.title %></td>
+        <td><%= diagram.revision %></td>
+        <td><%= diagram.revision_date %></td>
+        <td><%= diagram.width %></td>
+        <td><%= diagram.height %></td>
+        <td><%= link_to 'Show', diagram %></td>
+        <td><%= link_to 'Edit', edit_diagram_path(diagram) %></td>
+        <td><%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diagram', new_diagram_path %>
