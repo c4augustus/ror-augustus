@@ -25,12 +25,26 @@ class DiagramsController < ApplicationController
   # POST /diagrams
   # POST /diagrams.json
   def create
-    @diagram = Diagram.new(diagram_params)
-
+    uploaded_file = params[:diagram][:file]
+    if uploaded_file.nil?
+      ### DISPLAY ERROR 
+      redirect_to diagrams_path
+    end
+    @diagram = Diagram.new diagram_params
+    @diagram.filename = uploaded_file.original_filename 
+    dirname_target = Rails.root.join 'public', 'content', 'diagrams'
+    filespec_target = Rails.root.join dirname_target, @diagram.filename
+    FileUtils.makedirs dirname_target
+    File.open(filespec_target, 'wb') do |file|
+      file.write uploaded_file.read
+    end
     respond_to do |format|
       if @diagram.save
-        format.html { redirect_to @diagram, notice: 'Diagram was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @diagram }
+      #  format.html { redirect_to @diagram, notice: 'Diagram was successfully created.' }
+      #  format.json { render action: 'show', status: :created, location: @diagram }
+        format.html {}
+        format.json {}
+        redirect_to diagrams_path
       else
         format.html { render action: 'new' }
         format.json { render json: @diagram.errors, status: :unprocessable_entity }

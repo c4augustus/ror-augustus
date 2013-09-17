@@ -35,7 +35,7 @@ header {
     @include box_static;
     background-color: #555555;
     padding: 8px;
-    a {
+    a, a:visited {
       color: #FF7F7F;
       margin: 4px;
       padding: 8px;
@@ -50,7 +50,7 @@ header {
       color: #000000;
     }
     a:hover {
-      @include background-color_header;
+      background-color: #FF7F7F;
       color: #FFFFFF;
     }
   }

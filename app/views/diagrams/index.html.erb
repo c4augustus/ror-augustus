@@ -11,12 +11,13 @@
       </tr>
     </thead>
     <tbody>
+      <% diagram_last = @diagrams.last %>
       <% @diagrams.each do |diagram| %>
         <tr>
-        <% if diagram.filename == nil %>
+        <% if (diagram.equal? diagram_last) && (diagram.filename == nil) %>
           <%= form_for diagram do |f| %>
+            <td><!-- link_to 'New', new_diagram_path %> --></td>
             <td><%= f.submit %></td>
-            <td><%= link_to 'New', new_diagram_path %></td>
             <td>
               <%= f.file_field :file %><br>
               <%= f.text_field :title %></td>
@@ -26,10 +27,9 @@
             <td></td>
           <% end %>
         <% else %>
-          <td><%= link_to 'Show', diagram %></td>
-          <td><%= link_to 'Edit', edit_diagram_path(diagram) %></td>
           <td><%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= diagram.filename %><br>
+          <td><%= link_to 'Edit', edit_diagram_path(diagram) %></td>
+          <td><%= link_to "#{diagram.filename.nil? ? '(no filename)' : diagram.filename}", diagram %><br>
               <%= diagram.title %></td>
           <td><%= diagram.revision %><br>
               <%= diagram.revision_date %></td>

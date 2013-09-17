@@ -20,3 +20,6 @@
 
 ## for ViM [cathames]
 *.swp
+
+## dynamic content [cathames]
+/public/content
