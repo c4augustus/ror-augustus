@@ -5,6 +5,7 @@ class DiagramsController < ApplicationController
   # GET /diagrams.json
   def index
     @diagrams = Diagram.all
+    @diagrams << Diagram.new
   end
 
   # GET /diagrams/1

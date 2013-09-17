@@ -1,39 +1,44 @@
 <%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
-<h1>Listing diagrams</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Filename</th>
-      <th>Title</th>
-      <th>Revision</th>
-      <th>Revision date</th>
-      <th>Width</th>
-      <th>Height</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @diagrams.each do |diagram| %>
+<section id='diagrams'>
+  <table>
+    <thead>
       <tr>
-        <td><%= diagram.filename %></td>
-        <td><%= diagram.title %></td>
-        <td><%= diagram.revision %></td>
-        <td><%= diagram.revision_date %></td>
-        <td><%= diagram.width %></td>
-        <td><%= diagram.height %></td>
-        <td><%= link_to 'Show', diagram %></td>
-        <td><%= link_to 'Edit', edit_diagram_path(diagram) %></td>
-        <td><%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th id='heading_action1'></th>
+        <th id='heading_action2'></th>
+        <th id='heading_name'>filename, title</th>
+        <th id='heading_revision'>revision, date</th>
+        <th id='heading_dimensions'>width, height</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Diagram', new_diagram_path %>
+    </thead>
+    <tbody>
+      <% @diagrams.each do |diagram| %>
+        <tr>
+        <% if diagram.filename == nil %>
+          <%= form_for diagram do |f| %>
+            <td><%= f.submit %></td>
+            <td><%= link_to 'New', new_diagram_path %></td>
+            <td>
+              <%= f.file_field :file %><br>
+              <%= f.text_field :title %></td>
+            <td>
+              <%= f.text_field :revision, size: 12 %><br>
+              <%= f.date_field :revision_date, size: 12, value: Date.current %></td>
+            <td></td>
+          <% end %>
+        <% else %>
+          <td><%= link_to 'Show', diagram %></td>
+          <td><%= link_to 'Edit', edit_diagram_path(diagram) %></td>
+          <td><%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= diagram.filename %><br>
+              <%= diagram.title %></td>
+          <td><%= diagram.revision %><br>
+              <%= diagram.revision_date %></td>
+          <td><%= diagram.width %><br>
+              <%= diagram.height %></td>
+        <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
 <%= render partial: "shared/footer" %>

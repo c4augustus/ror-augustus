@@ -1,0 +1,22 @@
+@mixin table-border-compact-head-inv {
+  table {
+    border:1px solid #777777;
+    border-collapse:collapse;
+    font-size:12px;
+    width:100%;
+    table-layout:fixed; 
+  }
+  td {
+    border:1px solid #777777;
+    border-bottom:0px;
+    border-top:0px;
+    margin-left:8px;
+    padding:0px 0px 0px 8px;
+  }
+  th {
+    background-color:#777777;
+    color:#FFFFFF;
+    font-size:10px;
+    padding:0px 0px 0px 8px;
+  }
+}
