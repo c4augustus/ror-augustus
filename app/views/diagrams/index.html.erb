@@ -19,7 +19,7 @@
             <td><!-- link_to 'New', new_diagram_path %> --></td>
             <td><%= f.submit %></td>
             <td>
-              <%= f.file_field :file %><br>
+              <%= f.file_field :file, class: 'input-file' %><br>
               <%= f.text_field :title %></td>
             <td>
               <%= f.text_field :revision, size: 12 %><br>
@@ -27,9 +27,9 @@
             <td></td>
           <% end %>
         <% else %>
-          <td><%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'Edit', edit_diagram_path(diagram) %></td>
-          <td><%= link_to "#{diagram.filename.nil? ? '(no filename)' : diagram.filename}", diagram %><br>
+          <td><%= link_to 'DEL', diagram, class: 'link-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'edit', edit_diagram_path(diagram), class: 'link-edit' %></td>
+          <td><%= link_to "#{diagram.filename.nil? ? '(no filename)' : diagram.filename}", diagram, class: 'link-show' %><br>
               <%= diagram.title %></td>
           <td><%= diagram.revision %><br>
               <%= diagram.revision_date %></td>
