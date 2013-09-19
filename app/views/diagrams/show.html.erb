@@ -3,13 +3,11 @@
   <table>
     <%= render "table_head" %>
     <tbody>
-      <tr>
-        <%= render partial: "table_row_show", locals: { diagram: @diagram } %>
-      </tr>
+      <%= render partial: "table_row_show", locals: { diagram: @diagram, editable: false } %>
     </tbody>
   </table>
   <div id='diagram-shown'>
-    <img src="<%= @spec_content_diagram %>" alt="<NOT DISPLAYABLE>"/>
+    <img src="<%= @spec_content_diagram %>" alt="< DIAGRAM NOT DISPLAYABLE >"/>
   </div>
 </section>
 <%= render partial: "shared/footer" %>

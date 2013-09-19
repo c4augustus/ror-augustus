@@ -3,15 +3,13 @@
   <table>
     <%= render "table_head" %>
     <tbody>
-      <% diagram_last = @diagrams.last %>
-      <% @diagrams.each do |diagram| %>
-        <tr>
-        <% if (diagram.equal? diagram_last) && (diagram.filename == nil) %>
-          <%= render partial: "table_row_new", locals: { diagram: diagram } %>
+      <%= render partial: "table_row_form", locals: { diagram: @diagram_new, mode: :new } %>
+      <% @diagrams.each do |d| %>
+        <% if @diagram_edit.nil? || (@diagram_edit.id != d.id) %>
+          <%= render partial: "table_row_show", locals: { diagram: d, editable: true } %>
         <% else %>
-          <%= render partial: "table_row_show", locals: { diagram: diagram } %>
+          <%= render partial: "table_row_form", locals: { diagram: d, mode: :edit } %>
         <% end %>
-        </tr>
       <% end %>
     </tbody>
   </table>

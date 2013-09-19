@@ -1,11 +1,13 @@
 class DiagramsController < ApplicationController
   before_action :set_diagram, only: [:show, :edit, :update, :destroy]
 
+  @@diagram_new = Diagram.new
+
   # GET /diagrams
   # GET /diagrams.json
   def index
-    @diagrams = Diagram.all
-    @diagrams << Diagram.new
+    @diagrams = Diagram.all.sort {|a,b| a.filename <=> b.filename}
+    @diagram_new = @@diagram_new
   end
 
   # GET /diagrams/1
@@ -16,11 +18,14 @@ class DiagramsController < ApplicationController
 
   # GET /diagrams/new
   def new
-    @diagram = Diagram.new
+    ## SCAFFOLD GENERATED ## @diagram = Diagram.new
   end
 
   # GET /diagrams/1/edit
   def edit
+    index
+    @diagram_edit = @diagram
+    render action: 'index'
   end
 
   # POST /diagrams
@@ -30,6 +35,7 @@ class DiagramsController < ApplicationController
     if uploaded_file.nil?
       ### DISPLAY ERROR 
       redirect_to diagrams_path
+      return
     end
     @diagram = Diagram.new diagram_params
     @diagram.filename = uploaded_file.original_filename 
@@ -40,9 +46,9 @@ class DiagramsController < ApplicationController
     end
     respond_to do |format|
       if @diagram.save
-      #  format.html { redirect_to @diagram, notice: 'Diagram was successfully created.' }
-      #  format.json { render action: 'show', status: :created, location: @diagram }
+        ## SCAFFOLD GENERATED ## format.html { redirect_to @diagram, notice: 'Diagram was successfully created.' }
         format.html {}
+        ## SCAFFOLD GENERATED ## format.json { render action: 'show', status: :created, location: @diagram }
         format.json {}
         redirect_to diagrams_path
       else
@@ -57,7 +63,7 @@ class DiagramsController < ApplicationController
   def update
     respond_to do |format|
       if @diagram.update(diagram_params)
-        format.html { redirect_to @diagram, notice: 'Diagram was successfully updated.' }
+        format.html { redirect_to index, notice: 'Diagram was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +75,10 @@ class DiagramsController < ApplicationController
   # DELETE /diagrams/1
   # DELETE /diagrams/1.json
   def destroy
+    begin
+      File.delete filespec_content_diagram
+    rescue
+    end
     @diagram.destroy
     respond_to do |format|
       format.html { redirect_to diagrams_url }

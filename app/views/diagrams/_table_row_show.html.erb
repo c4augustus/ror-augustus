@@ -1,8 +1,16 @@
-<td><%= link_to 'DEL', diagram, class: 'link-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<td><%= link_to 'edit', edit_diagram_path(diagram), class: 'link-edit' %></td>
-<td><%= link_to "#{diagram.filename.nil? ? '(no filename)' : diagram.filename}", diagram, class: 'link-show' %><br>
-    <%= diagram.title %></td>
-<td><%= diagram.revision %><br>
-    <%= diagram.revision_date %></td>
-<td><%= diagram.width %><br>
-    <%= diagram.height %></td>
+<tr>
+<% if editable %>
+  <%= render partial: "table_data_destroy", locals: { diagram: diagram } %>
+  <td><%= link_to 'edit', edit_diagram_path(diagram), class: 'link-edit' %></td>
+<% else %>
+  <td></td>
+  <td></td>
+<% end %>
+  <td>
+      <%= render partial: "link_to_filename", locals: { diagram: diagram } %>
+      <br><%= diagram.title %></td>
+  <td><%= diagram.revision %><br>
+      <%= diagram.revision_date %></td>
+  <td><%= diagram.width %><br>
+      <%= diagram.height %></td>
+</tr>

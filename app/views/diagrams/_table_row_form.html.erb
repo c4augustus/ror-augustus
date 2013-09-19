@@ -1,0 +1,21 @@
+<tr>
+<%= form_for diagram do |f| %>
+  <% if mode == :edit %>
+    <%= render partial: "table_data_destroy", locals: { diagram: diagram } %>
+  <% else %>
+    <td></td>
+  <% end %>
+  <td><%= f.submit value: (mode == :edit) ? :update : :create %></td>
+  <td>
+    <% if mode == :new %>
+      <%= f.file_field :file, class: 'input-file' %>
+    <% else %>
+      <%= render partial: "link_to_filename", locals: { diagram: diagram } %>
+    <% end %>
+      <br><%= f.text_field :title %></td>
+  <td>
+    <%= f.text_field :revision, size: 12 %><br>
+    <%= f.date_field :revision_date, size: 12, value: Date.current %></td>
+  <td></td>
+<% end %>
+</tr>
