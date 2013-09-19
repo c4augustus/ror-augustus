@@ -2,13 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import '_mixins_table';
-#diagrams {
+#diagram, #diagrams {
   @include table-border-compact-head-inv;
-  table { table-layout:fixed; }
-  tr:nth-child(2n)   { background-color:#BBDDEE; }
-  tr:nth-child(2n+1) { background-color:#DDEEFF; }
-  th {                 background-color:#668899; }
-  table, td {              border-color:#668899; }
+  table {
+    table-layout:fixed;
+  }
   td {
     padding:3px 4px;
     input {
@@ -57,9 +55,24 @@
   input.input-file {
     background-color: transparent;
   }
-  #heading_action1     { width: 3em; }
-  #heading_action2     { width: 5em; }
-  #heading_name        { }
-  #heading_revision    { width: 10em; }
-  #heading_dimensions  { width: 10em; }
+  #heading_action1    { width: 3em; }
+  #heading_action2    { width: 5em; }
+  #heading_name       { }
+  #heading_revision   { width: 10em; }
+  #heading_dimensions { width: 10em; }
+}
+#diagram {
+  tr:nth-child(2n)    { background-color:#BBEEEE; }
+  tr:nth-child(2n+1)  { background-color:#DDFFFF; }
+  th {                  background-color:#669999; }
+  table, td {               border-color:#669999; }
+}
+#diagrams {
+  tr:nth-child(2n)    { background-color:#BBDDEE; }
+  tr:nth-child(2n+1)  { background-color:#DDEEFF; }
+  th {                  background-color:#668899; }
+  table, td {               border-color:#668899; }
+}
+#diagram-shown {
+  border: 2px;
 }

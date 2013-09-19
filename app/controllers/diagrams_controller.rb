@@ -11,6 +11,7 @@ class DiagramsController < ApplicationController
   # GET /diagrams/1
   # GET /diagrams/1.json
   def show
+    @spec_content_diagram = spec_content_diagram
   end
 
   # GET /diagrams/new
@@ -32,10 +33,9 @@ class DiagramsController < ApplicationController
     end
     @diagram = Diagram.new diagram_params
     @diagram.filename = uploaded_file.original_filename 
-    dirname_target = Rails.root.join 'public', 'content', 'diagrams'
-    filespec_target = Rails.root.join dirname_target, @diagram.filename
+    dirname_target = filepath_content_diagrams
     FileUtils.makedirs dirname_target
-    File.open(filespec_target, 'wb') do |file|
+    File.open(filespec_content_diagram, 'wb') do |file|
       file.write uploaded_file.read
     end
     respond_to do |format|
@@ -86,4 +86,17 @@ class DiagramsController < ApplicationController
     def diagram_params
       params.require(:diagram).permit(:filename, :title, :revision, :revision_date, :width, :height)
     end
+
+  def path_content_diagrams
+    '/content/diagrams'
+  end
+  def spec_content_diagram
+    path_content_diagrams + '/' + @diagram.filename
+  end
+  def filepath_content_diagrams
+    (Rails.root.join 'public').to_s + path_content_diagrams
+  end
+  def filespec_content_diagram
+    (Rails.root.join 'public').to_s + spec_content_diagram
+  end
 end

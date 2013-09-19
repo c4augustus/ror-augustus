@@ -1,34 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Filename:</strong>
-  <%= @diagram.filename %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @diagram.title %>
-</p>
-
-<p>
-  <strong>Revision:</strong>
-  <%= @diagram.revision %>
-</p>
-
-<p>
-  <strong>Revision date:</strong>
-  <%= @diagram.revision_date %>
-</p>
-
-<p>
-  <strong>Width:</strong>
-  <%= @diagram.width %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @diagram.height %>
-</p>
-
-<%= link_to 'Edit', edit_diagram_path(@diagram) %> |
-<%= link_to 'Back', diagrams_path %>
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<section id='diagram'>
+  <table>
+    <%= render "table_head" %>
+    <tbody>
+      <tr>
+        <%= render partial: "table_row_show", locals: { diagram: @diagram } %>
+      </tr>
+    </tbody>
+  </table>
+  <div id='diagram-shown'>
+    <img src="<%= @spec_content_diagram %>" alt="<NOT DISPLAYABLE>"/>
+  </div>
+</section>
+<%= render partial: "shared/footer" %>

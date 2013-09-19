@@ -1,40 +1,15 @@
 <%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
 <section id='diagrams'>
   <table>
-    <thead>
-      <tr>
-        <th id='heading_action1'></th>
-        <th id='heading_action2'></th>
-        <th id='heading_name'>filename, title</th>
-        <th id='heading_revision'>revision, date</th>
-        <th id='heading_dimensions'>width, height</th>
-      </tr>
-    </thead>
+    <%= render "table_head" %>
     <tbody>
       <% diagram_last = @diagrams.last %>
       <% @diagrams.each do |diagram| %>
         <tr>
         <% if (diagram.equal? diagram_last) && (diagram.filename == nil) %>
-          <%= form_for diagram do |f| %>
-            <td><!-- link_to 'New', new_diagram_path %> --></td>
-            <td><%= f.submit %></td>
-            <td>
-              <%= f.file_field :file, class: 'input-file' %><br>
-              <%= f.text_field :title %></td>
-            <td>
-              <%= f.text_field :revision, size: 12 %><br>
-              <%= f.date_field :revision_date, size: 12, value: Date.current %></td>
-            <td></td>
-          <% end %>
+          <%= render partial: "table_row_new", locals: { diagram: diagram } %>
         <% else %>
-          <td><%= link_to 'DEL', diagram, class: 'link-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'edit', edit_diagram_path(diagram), class: 'link-edit' %></td>
-          <td><%= link_to "#{diagram.filename.nil? ? '(no filename)' : diagram.filename}", diagram, class: 'link-show' %><br>
-              <%= diagram.title %></td>
-          <td><%= diagram.revision %><br>
-              <%= diagram.revision_date %></td>
-          <td><%= diagram.width %><br>
-              <%= diagram.height %></td>
+          <%= render partial: "table_row_show", locals: { diagram: diagram } %>
         <% end %>
         </tr>
       <% end %>
