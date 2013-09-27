@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @writing.filename %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @writing.title %>
+</p>
+
+<p>
+  <strong>Revision:</strong>
+  <%= @writing.revision %>
+</p>
+
+<p>
+  <strong>Revision data:</strong>
+  <%= @writing.revision_data %>
+</p>
+
+<%= link_to 'Edit', edit_writing_path(@writing) %> |
+<%= link_to 'Back', writings_path %>

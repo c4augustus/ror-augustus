@@ -1,4 +1,6 @@
 RorCathames::Application.routes.draw do
+  resources :writings
+
   resources :codes
 
   resources :diagrams
