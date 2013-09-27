@@ -1,0 +1,45 @@
+@import '_mixins_table';
+@mixin datagrid {
+  @include table-border-compact-head-inv;
+  a {
+    text-decoration: none;
+  }
+  a.link-destroy {
+    background-color:   #C88;
+    color:              #000;
+    display:            inline-block;
+    font-size:          0.7em;
+    text-align:         center;
+    width:              100%;
+    &:hover {
+      background-color: #F00;
+      color:            #FFF;
+    }
+  }
+  a.link-edit {
+    color:              #888888;
+    display:            inline-block;
+    text-align:         center;
+    width:              100%;
+    &:hover {
+      background-color: #888888;
+      color:            #FFF;
+    }
+  }
+  a.link-show {
+    color:              #000;
+    font-weight:        bold;
+    &:visited { 
+      color:            #777;
+    }
+    &:hover {
+      background-color: #FF7;
+    }
+  }
+  input {
+    background-color: #CCC;
+  }
+  input.input-file {
+    background-color: transparent;
+  }
+}

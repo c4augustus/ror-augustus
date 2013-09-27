@@ -1,35 +1,17 @@
-<h1>Listing codes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Filename</th>
-      <th>Title</th>
-      <th>Revision</th>
-      <th>Revision data</th>
-      <th>Language</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @codes.each do |code| %>
-      <tr>
-        <td><%= code.filename %></td>
-        <td><%= code.title %></td>
-        <td><%= code.revision %></td>
-        <td><%= code.revision_data %></td>
-        <td><%= code.language %></td>
-        <td><%= link_to 'Show', code %></td>
-        <td><%= link_to 'Edit', edit_code_path(code) %></td>
-        <td><%= link_to 'Destroy', code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Code', new_code_path %>
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<section id='codes'>
+  <table>
+    <%= render "table_head" %>
+    <tbody>
+      <%= render partial: "table_row_form", locals: { code: @code_new, mode: :new } %>
+      <% @codes.each do |d| %>
+        <% if @code_edit.nil? || (@code_edit.id != d.id) %>
+          <%= render partial: "table_row_show", locals: { code: d, editable: true } %>
+        <% else %>
+          <%= render partial: "table_row_form", locals: { code: d, mode: :edit } %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+<%= render partial: "shared/footer" %>

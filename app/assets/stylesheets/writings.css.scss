@@ -1,3 +1,33 @@
 // Place all the styles related to the Writings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_mixins_datagrid';
+#writing, #writings {
+  @include datagrid;
+  a.link-edit {
+    color:              #668899;
+    &:hover {
+      background-color: #668899;
+    }
+  }
+  #heading_action1    { width: 3em; }
+  #heading_action2    { width: 5em; }
+  #heading_name       { }
+  #heading_revision   { width: 10em; }
+  #heading_dimensions { width: 10em; }
+}
+#writing {
+  tr:nth-child(2n)    { background-color:#BBEEEE; }
+  tr:nth-child(2n+1)  { background-color:#DDFFFF; }
+  th {                  background-color:#669999; }
+  table, td {               border-color:#669999; }
+}
+#writings {
+  tr:nth-child(2n)    { background-color:#BBDDEE; }
+  tr:nth-child(2n+1)  { background-color:#DDEEFF; }
+  th {                  background-color:#668899; }
+  table, td {               border-color:#668899; }
+}
+#writing-shown {
+  border: 0px solid;
+}

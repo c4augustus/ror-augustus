@@ -1,29 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Filename:</strong>
-  <%= @code.filename %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @code.title %>
-</p>
-
-<p>
-  <strong>Revision:</strong>
-  <%= @code.revision %>
-</p>
-
-<p>
-  <strong>Revision data:</strong>
-  <%= @code.revision_data %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @code.language %>
-</p>
-
-<%= link_to 'Edit', edit_code_path(@code) %> |
-<%= link_to 'Back', codes_path %>
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<section id='code'>
+  <table>
+    <%= render "table_head" %>
+    <tbody>
+      <%= render partial: "table_row_show", locals: { code: @code, editable: false } %>
+    </tbody>
+  </table>
+  <div id='code-shown'>
+    <img src="<%= @spec_content_code %>" alt="< DIAGRAM NOT DISPLAYABLE >"/>
+  </div>
+</section>
+<%= render partial: "shared/footer" %>

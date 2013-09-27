@@ -1,59 +1,14 @@
 // Place all the styles related to the Diagrams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import '_mixins_table';
+@import '_mixins_datagrid';
 #diagram, #diagrams {
-  @include table-border-compact-head-inv;
-  table {
-    table-layout:fixed;
-  }
-  td {
-    padding:3px 4px;
-    input {
-      display:inline-block;
-      width:96%;
-    }
-  }
-  a {
-    text-decoration: none;
-  }
-  a.link-destroy {
-    background-color:   #C88;
-    color:              #000;
-    display:            inline-block;
-    font-size:          0.7em;
-    text-align:         center;
-    width:              100%;
-    &:hover {
-      background-color: #F00;
-      color:            #FFF;
-    }
-  }
+  @include datagrid;
   a.link-edit {
     color:              #668899;
-    display:            inline-block;
-    text-align:         center;
-    width:              100%;
     &:hover {
       background-color: #668899;
-      color:            #FFF;
     }
-  }
-  a.link-show {
-    color:              #000;
-    font-weight:        bold;
-    &:visited { 
-      color:            #777;
-    }
-    &:hover {
-      background-color: #FF7;
-    }
-  }
-  input {
-    background-color: #CCC;
-  }
-  input.input-file {
-    background-color: transparent;
   }
   #heading_action1    { width: 3em; }
   #heading_action2    { width: 5em; }

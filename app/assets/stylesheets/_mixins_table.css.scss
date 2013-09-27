@@ -11,7 +11,11 @@
     border-bottom:0px;
     border-top:0px;
     margin-left:8px;
-    padding:0px 0px 0px 8px;
+    padding:3px 4px;
+    input {
+      display:inline-block;
+      width:96%;
+    }
   }
   th {
     background-color:#777777;
