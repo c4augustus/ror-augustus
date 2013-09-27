@@ -1,4 +1,6 @@
 RorCathames::Application.routes.draw do
+  resources :movies
+
   resources :writings
 
   resources :codes

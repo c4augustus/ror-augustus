@@ -1,0 +1,37 @@
+<h1>Listing movies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Title</th>
+      <th>Revision</th>
+      <th>Revision data</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.filename %></td>
+        <td><%= movie.title %></td>
+        <td><%= movie.revision %></td>
+        <td><%= movie.revision_data %></td>
+        <td><%= movie.width %></td>
+        <td><%= movie.height %></td>
+        <td><%= link_to 'Show', movie %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movie', new_movie_path %>
