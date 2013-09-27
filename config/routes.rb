@@ -1,4 +1,6 @@
 RorCathames::Application.routes.draw do
+  resources :codes
+
   resources :diagrams
 
   get "welcome/index"

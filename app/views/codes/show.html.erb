@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @code.filename %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @code.title %>
+</p>
+
+<p>
+  <strong>Revision:</strong>
+  <%= @code.revision %>
+</p>
+
+<p>
+  <strong>Revision data:</strong>
+  <%= @code.revision_data %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @code.language %>
+</p>
+
+<%= link_to 'Edit', edit_code_path(@code) %> |
+<%= link_to 'Back', codes_path %>
