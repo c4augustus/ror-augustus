@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915202609) do
+ActiveRecord::Schema.define(version: 20130927060805) do
+
+  create_table "codes", force: true do |t|
+    t.string   "filename"
+    t.string   "title"
+    t.string   "revision"
+    t.date     "revision_data"
+    t.string   "language"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "diagrams", force: true do |t|
     t.string   "filename"
@@ -20,6 +30,15 @@ ActiveRecord::Schema.define(version: 20130915202609) do
     t.date     "revision_date"
     t.integer  "width"
     t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "writings", force: true do |t|
+    t.string   "filename"
+    t.string   "title"
+    t.string   "revision"
+    t.date     "revision_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
