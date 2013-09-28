@@ -14,6 +14,7 @@ class CodesController < ApplicationController
   # GET /codes/1.json
   def show
     @spec_content_code = spec_content_code
+    @content_code = File.open( filespec_content_code ) {|f| f.read}
   end
 
   # GET /codes/new

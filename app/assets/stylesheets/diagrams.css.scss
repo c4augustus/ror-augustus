@@ -5,9 +5,9 @@
 #diagram, #diagrams {
   @include datagrid;
   a.link-edit {
-    color:              #668899;
+    color:              #698;
     &:hover {
-      background-color: #668899;
+      background-color: #698;
     }
   }
   #heading_action1    { width: 3em; }
@@ -17,16 +17,16 @@
   #heading_dimensions { width: 10em; }
 }
 #diagram {
-  tr:nth-child(2n)    { background-color:#BBEEEE; }
-  tr:nth-child(2n+1)  { background-color:#DDFFFF; }
-  th {                  background-color:#669999; }
-  table, td {               border-color:#669999; }
+  tr:nth-child(2n)    { background-color:#DDD; }
+  tr:nth-child(2n+1)  { background-color:#DDD; }
+  th {                  background-color:#698; }
+  table, td {               border-color:#698; }
 }
 #diagrams {
-  tr:nth-child(2n)    { background-color:#BBDDEE; }
-  tr:nth-child(2n+1)  { background-color:#DDEEFF; }
-  th {                  background-color:#668899; }
-  table, td {               border-color:#668899; }
+  tr:nth-child(2n)    { background-color:#BED; }
+  tr:nth-child(2n+1)  { background-color:#DFE; }
+  th {                  background-color:#698; }
+  table, td {               border-color:#698; }
 }
 #diagram-shown {
   border: 0px solid;

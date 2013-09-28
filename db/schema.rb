@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927175008) do
+ActiveRecord::Schema.define(version: 20130927204614) do
 
   create_table "codes", force: true do |t|
     t.string   "filename"
     t.string   "title"
     t.string   "revision"
-    t.date     "revision_data"
+    t.date     "revision_date"
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20130927175008) do
     t.string   "filename"
     t.string   "title"
     t.string   "revision"
-    t.date     "revision_data"
+    t.date     "revision_date"
     t.integer  "width"
     t.integer  "height"
     t.datetime "created_at"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20130927175008) do
     t.string   "filename"
     t.string   "title"
     t.string   "revision"
-    t.date     "revision_data"
+    t.date     "revision_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

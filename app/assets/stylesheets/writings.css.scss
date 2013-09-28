@@ -17,16 +17,16 @@
   #heading_dimensions { width: 10em; }
 }
 #writing {
-  tr:nth-child(2n)    { background-color:#BBEEEE; }
-  tr:nth-child(2n+1)  { background-color:#DDFFFF; }
-  th {                  background-color:#669999; }
-  table, td {               border-color:#669999; }
+  tr:nth-child(2n)    { background-color:#DDD; }
+  tr:nth-child(2n+1)  { background-color:#DDD; }
+  th {                  background-color:#689; }
+  table, td {               border-color:#689; }
 }
 #writings {
-  tr:nth-child(2n)    { background-color:#BBDDEE; }
-  tr:nth-child(2n+1)  { background-color:#DDEEFF; }
-  th {                  background-color:#668899; }
-  table, td {               border-color:#668899; }
+  tr:nth-child(2n)    { background-color:#BDE; }
+  tr:nth-child(2n+1)  { background-color:#DEF; }
+  th {                  background-color:#689; }
+  table, td {               border-color:#689; }
 }
 #writing-shown {
   border: 0px solid;
