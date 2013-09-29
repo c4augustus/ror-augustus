@@ -1,11 +1,13 @@
 @mixin background-color_header {
-  background-color: #777777;
+  background-color: #777;
 }
 @mixin background-color_section {
-  background-color: #FFFFFF;
+  background-color: #FFF;
 }
 header {
   @include background-color_header;
+  background: linear-gradient(to right, #555, #FFF);
+  background: -webkit-linear-gradient(left, #555, #FFF);
   font-size: 12px;
   hgroup {
     overflow: hidden;
@@ -15,22 +17,22 @@ header {
     }
     h1 {
       margin: 4px 4px;
-      color: #FFFFFF;
+      color: #FFF;
       text-shadow: 3px 4px 3px rgba(0,0,0,0.7);
     }
     h2 {
       margin: 0px 4px;
-      color: #FFFF7F;
+      color: #FF8;
       text-shadow: 2px 3px 2px rgba(0,0,0,0.7);
     }
     h3 {
       margin: 0px 4px;
-      color: #FFAF5F;
+      color: #FB6;
       text-shadow: 1px 2px 1px rgba(0,0,0,0.7);
     }
   }
   nav {
-    background-color: #555555;
+    background-color: #555;
     overflow: hidden;
     padding: 0px 12px;
     white-space: nowrap;
@@ -52,5 +54,30 @@ header {
       background-color: #555555;
       color: #000000;
     }
+  }
+}
+#header-links {
+  text-align: right;
+  float:      right;
+  width:      50%;
+}
+#header-titles {
+  float:      left;
+  width:      50%;
+}
+#link-linkedin {
+  padding:            0;
+  a, a:visited, a:hover, a.selected, a.selected:hover {
+    background:       none;
+    color:            #000;
+    display:          block;
+    font-size:        1.25em;
+    line-height:      1.0em;
+    padding:          0;
+    text-decoration:  none;
+    vertical-align:   middle;
+  }
+  div {
+    float:            right;
   }
 }
