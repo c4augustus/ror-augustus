@@ -3,7 +3,9 @@
   <table>
     <%= render "table_head" %>
     <tbody>
-      <%= render partial: "table_row_form", locals: { diagram: @diagram_new, mode: :new } %>
+      <% if controller.modifiable %>
+        <%= render partial: "table_row_form", locals: { diagram: @diagram_new, mode: :new } %>
+      <% end %>
       <% @diagrams.each do |d| %>
         <% if @diagram_edit.nil? || (@diagram_edit.id != d.id) %>
           <%= render partial: "table_row_show", locals: { diagram: d, editable: true } %>

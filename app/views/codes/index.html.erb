@@ -3,7 +3,9 @@
   <table>
     <%= render "table_head" %>
     <tbody>
-      <%= render partial: "table_row_form", locals: { code: @code_new, mode: :new } %>
+      <% if controller.modifiable %>
+        <%= render partial: "table_row_form", locals: { code: @code_new, mode: :new } %>
+      <% end %>
       <% @codes.each do |d| %>
         <% if @code_edit.nil? || (@code_edit.id != d.id) %>
           <%= render partial: "table_row_show", locals: { code: d, editable: true } %>

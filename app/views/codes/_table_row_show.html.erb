@@ -1,7 +1,7 @@
 <tr>
 <% if editable %>
   <%= render partial: "table_data_destroy", locals: { code: code } %>
-  <td><%= link_to 'edit', edit_code_path(code), class: 'link-edit' %></td>
+  <td><%= controller.modifiable ? (link_to 'edit', edit_code_path(code), class: 'link-edit') : "" %></td>
 <% else %>
   <td></td>
   <td></td>

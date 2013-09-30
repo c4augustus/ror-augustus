@@ -1,11 +1,11 @@
 RorCathames::Application.routes.draw do
-  resources :movies
+#  resources :movies
 
-  resources :writings
+#  resources :writings
 
-  resources :codes
+  resources :codes, only: [:index,:show]
 
-  resources :diagrams
+  resources :diagrams, only: [:index,:show]
 
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
