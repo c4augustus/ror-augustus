@@ -1,4 +1,4 @@
-ror-cathames
+ror-augustus
 ============
 
-Ruby on Rails website for cathames.com
+Ruby on Rails website for christopheraugustus.com
